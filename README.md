@@ -8,7 +8,14 @@ __this is bold__
 
 [This is link to Google's IPv6 only site](https://ipv6.google.com/)
 
-**Source code**
+### Table
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
+
+### Source code
 
 ```vhdl
 library ieee;
