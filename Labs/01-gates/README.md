@@ -19,3 +19,16 @@ begin
 ### EDA playground link
 
 [https://www.edaplayground.com/x/a_5b](https://www.edaplayground.com/x/a_5b)
+
+### EDA playground link
+
+| **c** | **b** |**a** | **f(c,b,a)** |
+| :-: | :-: | :-: | :-: |
+| 0 | 0 | 0 | 1 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 0 |
