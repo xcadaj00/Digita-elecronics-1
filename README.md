@@ -5,6 +5,7 @@
 _this is italic_
 
 __this is bold__
+[This is link to Google's IPv6 only site](https://ipv6.google.com/)
 
 **Source code**
 
