@@ -20,7 +20,7 @@ begin
 
 [https://www.edaplayground.com/x/a_5b](https://www.edaplayground.com/x/a_5b)
 
-### EDA playground link
+### Table
 
 | **c** | **b** |**a** | **f(c,b,a)** |
 | :-: | :-: | :-: | :-: |
