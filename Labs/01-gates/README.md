@@ -1,7 +1,7 @@
 # Nadpis 2
 
 
-####De Morgan's laws simulation
+#### De Morgan's laws simulation
 
 ```vhdl
 architecture dataflow of gates is
