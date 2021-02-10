@@ -1,18 +1,21 @@
-# Nadpis 2
+# Lab 01-gates
 
+## De Morgan's laws simulation
 
-#### De Morgan's laws simulation
+### Source code
 
 ```vhdl
 architecture dataflow of gates is
 begin
-    f_o  <= ((not b_i) and a_i) or ((not c_i) and (not b_i));
-    fnand_o  <= ;
-    --fand_o <= a_i and b_i;
-    --fxor_o <= a_i xor b_i;
-
-end architecture dataflow;
+    f_o     <= ((not b_i) and a_i) or ((not c_i) and (not b_i));
+    fnand_o <= ((b_i nand b_i) nand (a_i)) nand ((c_i nand c_i) nand (b_i nand b_i));
+    fnor_o  <= (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i))) nor (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i)));
 ```
 
-![Simulace De Morgan's laws](images/demorgans_sim.png)
+### Graph
+
+![Simulation De Morgan's laws](images/demorgangraph.png)
+
+### EDA playground link
+
 [https://www.edaplayground.com/x/a_5b](https://www.edaplayground.com/x/a_5b)
