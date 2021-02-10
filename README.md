@@ -1,1 +1,1 @@
-# Digita-elecronics-1
+# Digital-elecronics-1
