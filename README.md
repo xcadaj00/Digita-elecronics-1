@@ -1,8 +1,11 @@
 # Digital-elecronics-1
 
 ## Labs
+
 _this is italic_
+
 __this is bold__
+
 **Source code**
 
 ```vhdl
