@@ -14,7 +14,7 @@ Hour | Time | Action
 ------------ | ------------- | -------------
 5 | 15 | Open
 6 | 15 | Close
-7 | 45 | Open
+7 | 45 | Close
 
 ### Source code
 
