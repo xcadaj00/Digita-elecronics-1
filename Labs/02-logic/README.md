@@ -220,7 +220,7 @@ end architecture testbench;
 
 ### Console output
 
-```console
+```
 [2021-02-18 16:53:44 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd 
 analyze design.vhd
 analyze testbench.vhd
