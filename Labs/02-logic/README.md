@@ -220,7 +220,7 @@ end architecture testbench;
 
 ### Console output
 
-```
+```console
 [2021-02-18 16:53:44 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd 
 analyze design.vhd
 analyze testbench.vhd
@@ -234,58 +234,6 @@ Finding VCD file...
 Done
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Source code
-
-```vhdl
-architecture dataflow of gates is
-begin
-    f_o     <= ((not b_i) and a_i) or ((not c_i) and (not b_i));
-    fnand_o <= ((b_i nand b_i) nand (a_i)) nand ((c_i nand c_i) nand (b_i nand b_i));
-    fnor_o  <= (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i))) nor (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i)));
-end architecture dataflow;
-```
-
-
-### Graph
-
-![Simulation De Morgan's laws](images/demorgangraph.png)
-
 ### EDA playground link
 
-[https://www.edaplayground.com/x/a_5b](https://www.edaplayground.com/x/a_5b)
-
-### Table
-
-| **c** | **b** |**a** | **f(c,b,a)** |
-| :-: | :-: | :-: | :-: |
-| 0 | 0 | 0 | 1 |
-| 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 0 |
-| 0 | 1 | 1 | 0 |
-| 1 | 0 | 0 | 0 |
-| 1 | 0 | 1 | 1 |
-| 1 | 1 | 0 | 0 |
-| 1 | 1 | 1 | 0 |
+[https://www.edaplayground.com/x/8RiH](https://www.edaplayground.com/x/8RiH)
