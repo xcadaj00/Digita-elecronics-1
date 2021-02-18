@@ -23,6 +23,14 @@
 | 14 | 1 1 | 1 0 | 1 | 0 | 0 |
 | 15 | 1 1 | 1 1 | 0 | 1 | 0 |
 
+![](images/equals_SoP.png)
+
+## 2-bit comparator
+
+### Karnaugh maps
+
+
+
 ### Source code
 
 ```vhdl
