@@ -29,6 +29,7 @@
 
 ### Karnaugh maps
 
+![Karnaugh maps and minimized functions](images/maps.jpg)
 
 
 ### Source code
