@@ -31,6 +31,39 @@
 
 ![Karnaugh maps and minimized functions](images/maps.jpg)
 
+### Graph
+
+![Simulation 2-bit comparator](images/2bit.png)
+
+### EDA playground link
+
+[https://www.edaplayground.com/x/8Qv9](https://www.edaplayground.com/x/8Qv9)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Source code
 
@@ -42,6 +75,7 @@ begin
     fnor_o  <= (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i))) nor (((b_i) nor (a_i nor a_i)) nor ((c_i) nor (b_i)));
 end architecture dataflow;
 ```
+
 
 ### Graph
 
