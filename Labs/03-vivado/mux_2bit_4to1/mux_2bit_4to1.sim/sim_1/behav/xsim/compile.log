@@ -1,0 +1,8 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sources_1/new/mux_2bit_4to1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux_2bit_4to1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sim_1/new/tb_mux_2bit_4to1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mux_2bit_4to1'
+WARNING: [VRFC 10-3607] overwriting existing primary unit 'mux_2bit_4to1' [C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sim_1/new/tb_mux_2bit_4to1.vhd:18]
+ERROR: [VRFC 10-719] formal port/generic <a_i> is not declared in <mux_2bit_4to1> [C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sim_1/new/tb_mux_2bit_4to1.vhd:39]
+ERROR: [VRFC 10-3782] unit 'testbench' ignored due to previous errors [C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sim_1/new/tb_mux_2bit_4to1.vhd:25]
+INFO: [VRFC 10-3070] VHDL file 'C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.srcs/sim_1/new/tb_mux_2bit_4to1.vhd' ignored due to errors
