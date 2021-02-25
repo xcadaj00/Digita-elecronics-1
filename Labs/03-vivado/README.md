@@ -2,254 +2,106 @@
 
 [https://github.com/xcadaj00/Digital-electronics-1/](https://github.com/xcadaj00/Digital-electronics-1/)
 
+## Tables with connection of 16 slide switches and 16 LEDs on Nexys A7 board
+
+### Slide switches
+
+| **Component** | **Pin** | **High state voltage ** |
+| :-: | :-: | :-: |
+| SW0 | J15 | 3.3V |
+| SW1 | L16 | 3.3V |
+| SW2 | M13 | 3.3V |
+| SW3 | R15 | 3.3V |
+| SW4 | R17 | 3.3V |
+| SW5 | T18 | 3.3V |
+| SW6 | U18 | 3.3V |
+| SW7 | R13 | 3.3V |
+| SW8 | T8 | 1.8V |
+| SW9 | U8 | 1.8V |
+| SW10 | R16 | 3.3V |
+| SW11 | T13 | 3.3V |
+| SW12 | H6 | 3.3V |
+| SW13 | U12 | 3.3V |
+| SW14 | U11 | 3.3V |
+| SW15 | V10 | 3.3V |
+
+### LEDs
+
+All LEDs are on when pin is pulled high
+
+| **Component** | **Pin** |
+| :-: | :-: |
+| LED0 | H17 |
+| LED1 | K15 |
+| LED2 | J13 |
+| LED3 | N14 |
+| LED4 | R18 |
+| LED5 | V17 |
+| LED6 | U17 |
+| LED7 | U16 |
+| LED8 | V16 |
+| LED9 | T15 |
+| LED10 | U14 |
+| LED11 | T16 |
+| LED12 | V15 |
+| LED13 | V14 |
+| LED14 | V12 |
+| LED15 | V11 |
 
 
+## Two-bit wide 4-to-1 multiplexer
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Binary comparator truth table
-
-| **Dec. equivalent** | **B[1:0]** | **A[1:0]** | **B is greater than A** | **B equals A** | **B is less than A** |
-| :-: | :-: | :-: | :-: | :-: | :-: |
-| 0 | 0 0 | 0 0 | 0 | 1 | 0 |
-| 1 | 0 0 | 0 1 | 0 | 0 | 1 |
-| 2 | 0 0 | 1 0 | 0 | 0 | 1 |
-| 3 | 0 0 | 1 1 | 0 | 0 | 1 |
-| 4 | 0 1 | 0 0 | 1 | 0 | 0 |
-| 5 | 0 1 | 0 1 | 0 | 1 | 0 |
-| 6 | 0 1 | 1 0 | 0 | 0 | 1 |
-| 7 | 0 1 | 1 1 | 0 | 0 | 1 |
-| 8 | 1 0 | 0 0 | 1 | 0 | 0 |
-| 9 | 1 0 | 0 1 | 1 | 0 | 0 |
-| 10 | 1 0 | 1 0 | 0 | 1 | 0 |
-| 11 | 1 0 | 1 1 | 0 | 0 | 1 |
-| 12 | 1 1 | 0 0 | 1 | 0 | 0 |
-| 13 | 1 1 | 0 1 | 1 | 0 | 0 |
-| 14 | 1 1 | 1 0 | 1 | 0 | 0 |
-| 15 | 1 1 | 1 1 | 0 | 1 | 0 |
-
-![](images/equals_SoP.png)
-
-## 2-bit comparator
-
-### Karnaugh maps
-
-![Karnaugh maps and minimized functions](images/maps.jpg)
-
-### Graph
-
-![Simulation 2-bit comparator](images/2bit.png)
-
-### EDA playground link
-
-[https://www.edaplayground.com/x/8Qv9](https://www.edaplayground.com/x/8Qv9)
-
-## 4-bit comparator
-
-### design.vhd
+### VHDL architecture
 
 ```vhdl
-------------------------------------------------------------------------
---
--- Example of 4-bit binary comparator using the when/else assignment.
--- EDA Playground
---
--- Copyright (c) 2020-2021 Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
-
-------------------------------------------------------------------------
--- Entity declaration for 4-bit binary comparator
-------------------------------------------------------------------------
-entity comparator_4bit is
-    port(
-        a_i           : in  std_logic_vector(4 - 1 downto 0);
-    	b_i           : in  std_logic_vector(4 - 1 downto 0);
-
-        -- COMPLETE ENTITY DECLARATION
-        B_greater_A_o : out std_logic;
-        B_equals_A_o  : out std_logic;
-        B_less_A_o    : out std_logic      -- B is less than A
-    );
-end entity comparator_4bit;
-
-------------------------------------------------------------------------
--- Architecture body for 2-bit binary comparator
-------------------------------------------------------------------------
-architecture Behavioral of comparator_4bit is
+architecture Behavioral of mux_2bit_4to1 is
 begin
-    B_equals_A_o  <= '1' when (b_i = a_i) else '0';
-    B_greater_A_o <= '1' when (b_i > a_i) else '0';
-    B_less_A_o    <= '1' when (b_i < a_i) else '0';
-
-
-    -- WRITE "GREATER" AND "EQUALS" ASSIGNMENTS HERE
-
-
+    f_o  <= a_i when (sel_i = "00") else
+            b_i when (sel_i = "01") else
+            c_i when (sel_i = "10") else
+            d_i;
 end architecture Behavioral;
 ```
 
-### testbench.vhd
+### VHDL stimulus process
 
 ```vhdl
-------------------------------------------------------------------------
---
--- Testbench for 4-bit binary comparator.
--- EDA Playground
---
--- Copyright (c) 2020-2021 Tomas Fryza
--- Dept. of Radio Electronics, Brno University of Technology, Czechia
--- This work is licensed under the terms of the MIT license.
---
-------------------------------------------------------------------------
-
-library ieee;
-use ieee.std_logic_1164.all;
-
-------------------------------------------------------------------------
--- Entity declaration for testbench
-------------------------------------------------------------------------
-entity tb_comparator_4bit is
-    -- Entity of testbench is always empty
-end entity tb_comparator_4bit;
-
-------------------------------------------------------------------------
--- Architecture body for testbench
-------------------------------------------------------------------------
-architecture testbench of tb_comparator_4bit is
-
-    -- Local signals
-    signal s_a       : std_logic_vector(4 - 1 downto 0);
-    signal s_b       : std_logic_vector(4 - 1 downto 0);
-    signal s_B_greater_A : std_logic;
-    signal s_B_equals_A  : std_logic;
-    signal s_B_less_A    : std_logic;
-
-begin
-    -- Connecting testbench signals with comparator_4bit entity (Unit Under Test)
-    uut_comparator_2bit : entity work.comparator_4bit
-        port map(
-            a_i           => s_a,
-            b_i           => s_b,
-            B_greater_A_o => s_B_greater_A,
-            B_equals_A_o  => s_B_equals_A,
-            B_less_A_o    => s_B_less_A
-        );
-
-    --------------------------------------------------------------------
-    -- Data generation process
-    --------------------------------------------------------------------
-    p_stimulus : process
+p_stimulus : process
     begin
         -- Report a note at the begining of stimulus process
         report "Stimulus process started" severity note;
 
 
         -- First test values
-        s_b <= "0000"; s_a <= "0000"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '1') and (s_B_less_A = '0'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0000, 0000" severity error;
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00";
+        s_sel <= "00"; wait for 50 ns;
         
-        s_b <= "0000"; s_a <= "0001"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0000, 0001" severity error;
+        s_a <= "01"; wait for 50 ns;
+        s_b <= "01"; wait for 50 ns;
         
-        s_b <= "1000"; s_a <= "0001"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
-        -- If false, then report an error
-        report "Test failed for input combination: 1000, 0001" severity error;
+        s_sel <= "01"; wait for 50 ns;
+        s_c <= "00"; wait for 50 ns;
+        s_b <= "11"; wait for 50 ns;
         
-        s_b <= "0010"; s_a <= "1100"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0010, 1100" severity error;
+        s_d <= "10"; s_c <= "11"; s_b <= "01"; s_a <= "00"; 
+        s_sel <= "10"; wait for 50 ns;
         
-        s_b <= "0110"; s_a <= "0101"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0110, 0101" severity error;
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00"; 
+        s_sel <= "10"; wait for 50 ns;
         
-        s_b <= "1010"; s_a <= "0011"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
-        -- If false, then report an error
-        report "Test failed for input combination: 1010, 0011" severity error;
-        
-        s_b <= "0010"; s_a <= "1100"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0010, 1100" severity error;
-        
-        s_b <= "0011"; s_a <= "1111"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
-        -- If false, then report an error
-        report "Test failed for input combination: 0011, 1111" severity error;
-        
-        s_b <= "1010"; s_a <= "1101"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '1') and (s_B_equals_A = '0') and (s_B_less_A = '0'))
-        -- If false, then report an error
-        report "Test failed for input combination: 1010, 1101" severity error;
-        
-        s_b <= "1000"; s_a <= "1011"; wait for 100 ns;
-        -- Expected output
-        assert ((s_B_greater_A = '0') and (s_B_equals_A = '0') and (s_B_less_A = '1'))
-        -- If false, then report an error
-        report "Test failed for input combination: 1000, 1011" severity error;
-        
-        -- WRITE OTHER TESTS HERE
-
+        s_d <= "10"; s_c <= "11"; s_b <= "01"; s_a <= "00";
+        s_sel <= "11"; wait for 50 ns;
 
         -- Report a note at the end of stimulus process
         report "Stimulus process finished" severity note;
-        wait;
+        --wait;
     end process p_stimulus;
-
-end architecture testbench;
-
 ```
 
-### Console output
+### Screenshot with simulated time waveforms
 
-```console
-[2021-02-18 16:53:44 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd 
-analyze design.vhd
-analyze testbench.vhd
-elaborate tb_comparator_4bit
-testbench.vhd:51:9:@0ms:(report note): Stimulus process started
-testbench.vhd:105:9:@900ns:(assertion error): Test failed for input combination: 1010, 1101
-testbench.vhd:119:9:@1us:(report note): Stimulus process finished
-Finding VCD file...
-./dump.vcd
-[2021-02-18 16:53:45 EST] Opening EPWave...
-Done
-```
+![](images/sim.png)
 
-### EDA playground link
+## A Vivado tutorial
 
-[https://www.edaplayground.com/x/8RiH](https://www.edaplayground.com/x/8RiH)
+

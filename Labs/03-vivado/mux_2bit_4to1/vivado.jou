@@ -11,3 +11,6 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vivado/mux_2bit_4to1/mux_2bit_4to1.xpr
+launch_simulation
+source tb_mux_2bit_4to1.tcl
+update_compile_order -fileset sources_1
