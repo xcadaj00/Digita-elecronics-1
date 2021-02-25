@@ -104,7 +104,7 @@ p_stimulus : process
 
 ## A Vivado tutorial
 
-###¨Project creation
+### Project creation
 
 1. Open Vivado 2020.2
 2. Under "Quick Start", click "Create Project"
