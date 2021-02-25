@@ -97,3 +97,8 @@ INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_mux_2bit_4to1_behav' loa
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
 launch_simulation: Time (s): cpu = 00:00:26 ; elapsed = 00:00:23 . Memory (MB): peak = 1002.910 ; gain = 0.000
 update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1002.910 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 25 22:52:49 2021...

@@ -14,3 +14,4 @@ open_project C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/03-vi
 launch_simulation
 source tb_mux_2bit_4to1.tcl
 update_compile_order -fileset sources_1
+close_sim
