@@ -6,7 +6,7 @@
 
 ### Slide switches
 
-| **Component** | **Pin** | **High state voltage ** |
+| **Component** | **Pin** | **High state voltage** |
 | :-: | :-: | :-: |
 | SW0 | J15 | 3.3V |
 | SW1 | L16 | 3.3V |
