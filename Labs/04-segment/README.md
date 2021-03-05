@@ -169,26 +169,6 @@ p_stimulus : process
 ### Listing of VHDL code from source file top.vhd with 7-segment module instantiation
 
 ```vhdl
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03.03.2021 16:02:21
--- Design Name: 
--- Module Name: top - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -219,19 +199,6 @@ entity top is
 end top;
 
 architecture Behavioral of top is
-
--- Used to test it without physical board
---        signal SW : STD_LOGIC_VECTOR (4 - 1 downto 0); -- Input binary data
---        signal CA : STD_LOGIC; -- 	Cathod A
---        signal CB : STD_LOGIC; -- 	Cathod B
---        signal CC : STD_LOGIC; -- 	Cathod C
---        signal CD : STD_LOGIC; -- 	Cathod D
---        signal CE : STD_LOGIC; -- 	Cathod E
---        signal CF : STD_LOGIC; -- 	Cathod F
---        signal CG : STD_LOGIC; -- 	Cathod G
-        
---        signal LED : STD_LOGIC_VECTOR (8 - 1 downto 0); -- LED indicators
---        signal AN  : STD_LOGIC_VECTOR (8 - 1 downto 0); -- Common anode signals to individual displays
 
 begin
 
@@ -268,52 +235,7 @@ begin
     -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
     LED(7)  <= '1' when (SW = "0001" or SW = "0010" or SW = "0100" or SW = "1000") else '0';
     
---    Used to test it without physical board
-
---    p_stimulus : process
---    begin
---        -- Report a note at the begining of stimulus process
---        report "Stimulus process started" severity note;
-
---        SW <= "0000"; wait for 100 ns;
-        
---        SW <= "0001"; wait for 100 ns;
-        
---        SW <= "0010"; wait for 100 ns;
-        
---        SW <= "0011"; wait for 100 ns;
-        
---        SW <= "0100"; wait for 100 ns;
-       
---        SW <= "0101"; wait for 100 ns;
-        
---        SW <= "0110"; wait for 100 ns;
-        
---        SW <= "0111"; wait for 100 ns;
-        
---        SW <= "1000"; wait for 100 ns;
-        
---        SW <= "1001"; wait for 100 ns;
-        
---        SW <= "1010"; wait for 100 ns;
-        
---        SW <= "1011"; wait for 100 ns;
-        
---        SW <= "1100"; wait for 100 ns;
-        
---        SW <= "1101"; wait for 100 ns;
-        
---        SW <= "1110"; wait for 100 ns;
-        
---        SW <= "1111"; wait for 100 ns;
-
---        -- Report a note at the end of stimulus process
---        report "Stimulus process finished" severity note;
---        wait;
---    end process p_stimulus;
-    
 end Behavioral;
-
 ```
 
 ## LED(7:4) indicators
@@ -357,4 +279,4 @@ end Behavioral;
 
 ### Screenshot with simulated time waveforms
 
-![](images/leds.png)
+![](images/top.png)
