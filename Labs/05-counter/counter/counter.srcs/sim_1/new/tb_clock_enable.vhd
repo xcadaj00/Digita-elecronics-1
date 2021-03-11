@@ -25,7 +25,7 @@ end entity tb_clock_enable;
 ------------------------------------------------------------------------
 architecture testbench of tb_clock_enable is
 
-    constant c_MAX               : natural := 8;
+    constant c_MAX               : natural := 5;
     constant c_CLK_100MHZ_PERIOD : time    := 10 ns;
 
     --Local signals
