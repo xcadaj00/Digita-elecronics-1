@@ -108,7 +108,7 @@ end process p_cnt_up_down;
 
 ## Top level
 
-### VHDL code from source file top.vhd with all instantiations for the 4-bit bidirectional counte
+### VHDL code from source file top.vhd with all instantiations for the 4-bit bidirectional counter
 
 ```vhdl
 ----------------------------------------------------------------------------------
