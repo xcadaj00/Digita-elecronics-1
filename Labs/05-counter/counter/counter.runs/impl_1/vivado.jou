@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Mar 12 02:11:17 2021
-# Process ID: 364
+# Start of session at: Fri Mar 12 15:09:06 2021
+# Process ID: 12744
 # Current directory: C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/05-counter/counter/counter.runs/impl_1
 # Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
 # Log file: C:/Users/uzivatel/Documents/github/Digital-electronics-1/Labs/05-counter/counter/counter.runs/impl_1/top.vdi

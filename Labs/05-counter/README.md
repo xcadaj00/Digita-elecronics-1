@@ -150,7 +150,7 @@ entity top is
         CLK100MHZ : in STD_LOGIC;
         BTNC : in STD_LOGIC;
         SW : in STD_LOGIC_VECTOR (1 - 1 downto 0);
-        LED : out STD_LOGIC_VECTOR (4 - 1 downto 0);
+        LED : out STD_LOGIC_VECTOR (16 - 1 downto 0);
         CA : out STD_LOGIC;
         CB : out STD_LOGIC;
         CC : out STD_LOGIC;
@@ -168,6 +168,7 @@ architecture Behavioral of top is
 
     -- Internal clock enable
     signal s_en  : std_logic;
+    signal s_en16  : std_logic;
     -- Internal counter
     signal s_cnt : std_logic_vector(4 - 1 downto 0);
 
@@ -177,7 +178,7 @@ begin
     -- Instance (copy) of clock_enable entity
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 10
+            g_MAX => 25000000
         )
         port map(
             clk   => CLK100MHZ,     -- Main clock
@@ -200,9 +201,37 @@ begin
             cnt_up_i => SW(0),
             cnt_o    => s_cnt
         );
+        
+    --------------------------------------------------------------------
+    -- Instance (copy) of clock_enable entity
+    clk_en1 : entity work.clock_enable
+        generic map(
+            g_MAX => 1000000
+        )
+        port map(
+            clk   => CLK100MHZ,     -- Main clock
+            reset => BTNC,     -- Synchronous reset
+            ce_o  => s_en16
+        );
+
+    --------------------------------------------------------------------
+    -- Instance (copy) of cnt_up_down entity
+    bin_cnt1 : entity work.cnt_up_down
+        generic map(
+            --- WRITE YOUR CODE HERE
+            g_CNT_WIDTH => 16
+        )
+        port map(
+            --- WRITE YOUR CODE HERE
+            clk      => CLK100MHZ,
+            reset    => BTNC, 
+            en_i     => s_en16,
+            cnt_up_i => SW(0),
+            cnt_o    => LED(15 downto 0)
+        );
 
     -- Display input value on LEDs
-    LED(3 downto 0) <= s_cnt;
+    --LED(15 downto 0) <= s_cnt;
 
     --------------------------------------------------------------------
     -- Instance (copy) of hex_7seg entity
@@ -226,4 +255,4 @@ end architecture Behavioral;
 
 ### Image of the top layer including both counters, ie a 4-bit bidirectional counter from Part 4 and a 16-bit counter with a 10 ms time base from Part Experiments on your own. The image can be drawn on a computer or by hand.
 
-
+![](images/schema.jpg)

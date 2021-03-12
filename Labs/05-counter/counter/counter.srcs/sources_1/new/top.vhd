@@ -65,7 +65,7 @@ begin
     -- Instance (copy) of clock_enable entity
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 100000000
+            g_MAX => 25000000
         )
         port map(
             clk   => CLK100MHZ,     -- Main clock
@@ -112,7 +112,7 @@ begin
             --- WRITE YOUR CODE HERE
             clk      => CLK100MHZ,
             reset    => BTNC, 
-            en_i     => s_en,
+            en_i     => s_en16,
             cnt_up_i => SW(0),
             cnt_o    => LED(15 downto 0)
         );
