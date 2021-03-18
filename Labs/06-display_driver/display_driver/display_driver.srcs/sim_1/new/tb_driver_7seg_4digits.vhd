@@ -70,7 +70,7 @@ begin
     --------------------------------------------------------------------
     p_clk_gen : process
     begin
-        while now < 750 ns loop         -- 75 periods of 100MHz clock
+        while now < 40 ms loop         -- 75 periods of 100MHz clock
             s_clk_100MHz <= '0';
             wait for c_CLK_100MHZ_PERIOD / 2;
             s_clk_100MHz <= '1';
@@ -94,11 +94,11 @@ begin
             s_reset <= '1';
             wait for 53 ns;
     
-            -- Reset deactivated
+            --Reset deactivated
             s_reset <= '0';
             
-            wait for 700 ns;
-            s_reset <= '1';
+            --wait for 700 ns;
+            --s_reset <= '1';
     
             wait;
      end process p_reset_gen;

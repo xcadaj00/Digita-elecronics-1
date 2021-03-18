@@ -54,7 +54,7 @@ begin
     -- every 4 ms
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 4        -- Number of clk pulses to generate
+            g_MAX => 400000        -- Number of clk pulses to generate
                                     -- one enable signal period
         )  -- Note that there IS a semicolon between generic and port
         -- sections
