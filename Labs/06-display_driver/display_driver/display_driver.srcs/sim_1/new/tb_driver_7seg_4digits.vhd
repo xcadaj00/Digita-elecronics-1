@@ -70,7 +70,7 @@ begin
     --------------------------------------------------------------------
     p_clk_gen : process
     begin
-        while now < 40 ms loop         -- 75 periods of 100MHz clock
+        while now < 40 ms loop        
             s_clk_100MHz <= '0';
             wait for c_CLK_100MHZ_PERIOD / 2;
             s_clk_100MHz <= '1';
@@ -116,6 +116,28 @@ begin
         s_data0 <= "0010";
                
         s_dp_i  <= "0111";
+        
+        wait for 6 ms;
+        
+        assert ((s_dig = "0111") and (s_seg = "0000110") and (s_dp_o = '0'))
+        report "Test failed for input: '3.' " severity error;
+        
+        wait for 4 ms;
+        
+        assert ((s_dig = "1011") and (s_seg = "1001111") and (s_dp_o = '1'))
+        report "Test failed for input: '1' " severity error;
+        
+        wait for 4 ms;
+        
+        assert ((s_dig = "1101") and (s_seg = "1001100") and (s_dp_o = '1'))
+        report "Test failed for input: '4' " severity error;
+        
+        wait for 4 ms;
+        
+        assert ((s_dig = "1110") and (s_seg = "0010010") and (s_dp_o = '1'))
+        report "Test failed for input: '2' " severity error;
+        
+        
     
         report "Stimulus process finished" severity note;
         wait;
