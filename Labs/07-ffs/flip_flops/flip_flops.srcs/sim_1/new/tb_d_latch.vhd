@@ -57,8 +57,6 @@ uut_d_latch : entity work.d_latch
     --------------------------------------------------------------------
     -- Reset generation process
     --------------------------------------------------------------------
-
-
      p_reset_gen : process
         begin
             s_arst <= '0';
@@ -71,7 +69,7 @@ uut_d_latch : entity work.d_latch
             --Reset deactivated
             s_arst <= '0';
             
-            wait for 300 ns;
+            wait for 80 ns;
             s_arst <= '1';
     
             wait;
@@ -96,9 +94,19 @@ uut_d_latch : entity work.d_latch
         s_d  <= '1';
         wait for 10 ns;
         s_d  <= '0';
-        wait for 10 ns;
+        wait for 5 ns;
+        
+        assert ((s_arst = '1') and (s_en = '0') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset high, en low when s_d = '0'" severity error;
+        
+        wait for 5 ns;
         s_d  <= '1';
-        wait for 10 ns;
+        wait for 5 ns;
+        
+        assert ((s_arst = '1') and (s_en = '0') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset high, en low when s_d = '1'" severity error;
+        
+        wait for 5 ns;
         s_d  <= '0';
         --/d sekv
         
@@ -107,24 +115,46 @@ uut_d_latch : entity work.d_latch
         --d sekv
         wait for 10 ns;
         s_d  <= '1';
-        wait for 10 ns;
+        wait for 5 ns;
+        
+        assert ((s_arst = '1') and (s_en = '1') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset high, en high when s_d = '1'" severity error;
+        
+        wait for 5 ns;
         s_d  <= '0';
-        wait for 10 ns;
+        wait for 5 ns;
+        
+        assert ((s_arst = '1') and (s_en = '1') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset high, en high when s_d = '0'" severity error;          
+        
+        wait for 5 ns;
         s_d  <= '1';
         wait for 10 ns;
         s_d  <= '0';
         wait for 10 ns;
         s_d  <= '1';
-        s_en <= '0';
-        wait for 200 ns;
+        wait for 5 ns;
+        
+        assert ((s_arst = '0') and (s_en = '1') and (s_q = '1') and (s_q_bar = '0'))
+        report "Test failed for reset low, en high when s_d = '1'" severity error;
+        
+        wait for 15 ns;
         s_d  <= '0';
+        wait for 5 ns;
+        
+        assert ((s_arst = '0') and (s_en = '1') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset low, en high when s_d = '0'" severity error;
+        
         --/d sekv
         
         --d sekv
-        wait for 10 ns;
+        wait for 5 ns;
         s_d  <= '1';
-        wait for 10 ns;
+        wait for 5 ns;
+        s_en <= '0';
+        wait for 5 ns;
         s_d  <= '0';
+   
         wait for 10 ns;
         s_d  <= '1';
         wait for 10 ns;
