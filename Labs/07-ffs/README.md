@@ -475,9 +475,20 @@ end process p_stimulus;
 
 ### Screenshots with simulated time waveforms
 
+#### tb_d_ff_arst
+
 ![](images/d_ff_arst.png)
+
+#### tb_d_ff_rst
+
+![](images/d_ff_rst.png)
+
+#### tb_jk_ff_rst
+
 ![]()
-![]()
+
+#### tb_t_ff_rst
+
 ![]()
 
 ## Shift register. Submit:
