@@ -257,6 +257,9 @@ begin
     end if;
 
 end process p_t_ff_rst;
+
+q <= s_q;
+q_bar <= not s_q;
 ```
 
 ### Listing of VHDL clock, reset and stimulus processes from the testbench files with syntax highlighting and asserts
