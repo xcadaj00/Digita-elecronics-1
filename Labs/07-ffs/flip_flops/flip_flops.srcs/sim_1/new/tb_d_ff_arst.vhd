@@ -37,18 +37,18 @@ end tb_d_ff_arst;
 
 architecture Behavioral of tb_d_ff_arst is
     
-    constant c_CLK_100MHZ_PERIOD : time    := 10 ns;
+    constant c_CLK_100MHZ_PERIOD : time := 10 ns;
     --Local signals
-    signal s_clk_100MHz    : std_logic;
+    signal s_clk_100MHz : std_logic;
 
-    signal s_arst  : std_logic;
-    signal s_d     : std_logic;
-    signal s_q     : std_logic;
-    signal s_q_bar : std_logic;
+    signal s_arst       : std_logic;
+    signal s_d          : std_logic;
+    signal s_q          : std_logic;
+    signal s_q_bar      : std_logic;
 
 begin
 
-uut_d_ff_arst : entity work.d_ff_arst
+    uut_d_ff_arst : entity work.d_ff_arst
         port map(
             clk     => s_clk_100MHz,
             arst    => s_arst,
@@ -56,7 +56,7 @@ uut_d_ff_arst : entity work.d_ff_arst
             q       => s_q,
             q_bar   => s_q_bar
         );
-    
+
     --------------------------------------------------------------------
     -- Clock generation process
     --------------------------------------------------------------------
@@ -143,9 +143,6 @@ uut_d_ff_arst : entity work.d_ff_arst
         --/d sekv
         
        
-        
-        
-    
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;

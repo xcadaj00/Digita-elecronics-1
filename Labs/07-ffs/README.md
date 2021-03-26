@@ -247,7 +247,7 @@ q_bar <= not s_q;
 
 ### Screenshot with simulated time waveforms
 
-![]()
+![](images/d_ff_arst.png)
 ![]()
 ![]()
 ![]()
