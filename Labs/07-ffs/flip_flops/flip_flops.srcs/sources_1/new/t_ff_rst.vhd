@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 26.03.2021 19:04:34
+-- Create Date: 26.03.2021 20:22:12
 -- Design Name: 
--- Module Name: d_ff_rst - Behavioral
+-- Module Name: t_ff_rst - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,31 +31,34 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity d_ff_rst is
+entity t_ff_rst is
     Port ( 
         clk   : in  STD_LOGIC;
         rst   : in  STD_LOGIC;
-        d     : in  STD_LOGIC;
+        t     : in  STD_LOGIC;
         q     : out STD_LOGIC;
         q_bar : out STD_LOGIC
     );
-end d_ff_rst;
+end t_ff_rst;
 
-architecture Behavioral of d_ff_rst is
-
+architecture Behavioral of t_ff_rst is
+    signal s_q : std_logic;
 begin
-
-    p_d_ff_rst : process (clk)
-    begin
-        if rising_edge(clk) then
-            if (rst = '1') then
-                q <= '0';
-                q_bar <= '1';
-            else
-                q <= d;
-                q_bar <= not d;
-            end if;
+    
+p_t_ff_rst : process (clk)
+begin
+    if rising_edge(clk) then
+        if (rst = '1') then
+            s_q <= '0';
+        elsif (t = '1') then
+            s_q <= not s_q;
         end if;
-    end process p_d_ff_rst;
+    end if;
 
+end process p_t_ff_rst;
+
+q <= s_q;
+q_bar <= not s_q;
+    
+    
 end Behavioral;
