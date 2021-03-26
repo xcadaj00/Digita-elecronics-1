@@ -130,8 +130,8 @@ begin
         s_d  <= '1';
         wait for 5 ns;
         
-        -- verify that reset is truly asynchronous
-        assert ((s_rst = '1') and (s_q = '0') and (s_q_bar = '1'))
+        -- verify that reset is truly synchronous
+        assert ((s_rst = '1') and (s_q = '1') and (s_q_bar = '0'))
         report "Test failed for reset high, before clk rising when s_d = '1'" severity error;
         
         wait for 5 ns;
