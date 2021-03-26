@@ -110,7 +110,12 @@ begin
         --d sekv
         wait for 14 ns;
         s_d  <= '1';
-        wait for 10 ns;
+        wait for 2 ns;
+        
+        assert ((s_arst = '0') and (s_q = '1') and (s_q_bar = '0'))
+        report "Test failed for reset low, after clk rising when s_d = '1'" severity error;
+        
+        wait for 8 ns;
         s_d  <= '0';
         wait for 6 ns;
         
@@ -123,7 +128,13 @@ begin
         s_d  <= '0';
         wait for 10 ns;
         s_d  <= '1';
-        wait for 10 ns;
+        wait for 5 ns;
+        
+        -- verify that reset is truly asynchronous
+        assert ((s_arst = '1') and (s_q = '0') and (s_q_bar = '1'))
+        report "Test failed for reset high, before clk rising when s_d = '1'" severity error;
+        
+        wait for 5 ns;
         s_d  <= '0';
         --/d sekv
         
