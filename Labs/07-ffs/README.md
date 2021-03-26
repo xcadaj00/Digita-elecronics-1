@@ -708,7 +708,7 @@ end process p_stimulus;
 
 ![](images/t_ff_rst.png)
 
-## Shift register. Submit:
+## Shift register
 
 ### Image of the shift register schematic
 
