@@ -61,21 +61,21 @@ end process p_d_latch;
 -- Reset generation process
 --------------------------------------------------------------------
  p_reset_gen : process
-	begin
-		s_arst <= '0';
-		wait for 38 ns;
-		
-		-- Reset activated
-		s_arst <= '1';
-		wait for 53 ns;
+ begin
+	 s_arst <= '0';
+	 wait for 38 ns;
+	 
+	 -- Reset activated
+	 s_arst <= '1';
+	 wait for 53 ns;
 
-		--Reset deactivated
-		s_arst <= '0';
-		
-		wait for 80 ns;
-		s_arst <= '1';
+	 --Reset deactivated
+	 s_arst <= '0';
+	
+	 wait for 80 ns;
+	 s_arst <= '1';
 
-		wait;
+	 wait;
  end process p_reset_gen;
 
 --------------------------------------------------------------------
@@ -184,14 +184,48 @@ end process p_stimulus;
 ### VHDL code listing of the processes p_d_ff_arst, p_d_ff_rst, p_jk_ff_rst, p_t_ff_rst with syntax highlighting
 
 ```vhdl
-
+p_d_ff_arst : process (clk, arst)
+begin
+	if (arst = '1') then
+		q <= '0';
+		q_bar <= '1';
+	elsif rising_edge(clk) then
+		q <= d;
+		q_bar <= not d;
+	end if;
+end process p_d_ff_arst;
 ```
+
 ```vhdl
 
 ```
-```vhdl
 
+```vhdl
+p_jk_ff_rst : process (clk)
+begin
+    if rising_edge(clk) then
+        if (rst = '1') then
+            s_q <= '0';
+        else
+            if (j = '0' and k = '0') then
+                s_q <= s_q;
+            elsif (j = '0' and k = '1') then
+                s_q <= '0';
+            elsif (j = '1' and k = '0') then
+                s_q <= '1';
+            elsif (j = '1' and k = '1') then
+                s_q <= not s_q;
+            
+            end if;
+        end if;
+    end if;
+
+end process p_jk_ff_rst;
+
+q <= s_q;
+q_bar <= not s_q;
 ```
+
 ```vhdl
 
 ```

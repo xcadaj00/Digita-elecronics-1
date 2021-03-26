@@ -58,21 +58,21 @@ uut_d_latch : entity work.d_latch
     -- Reset generation process
     --------------------------------------------------------------------
      p_reset_gen : process
-        begin
-            s_arst <= '0';
-            wait for 38 ns;
-            
-            -- Reset activated
-            s_arst <= '1';
-            wait for 53 ns;
-    
-            --Reset deactivated
-            s_arst <= '0';
-            
-            wait for 80 ns;
-            s_arst <= '1';
-    
-            wait;
+     begin
+         s_arst <= '0';
+         wait for 38 ns;
+         
+         -- Reset activated
+         s_arst <= '1';
+         wait for 53 ns;
+
+         --Reset deactivated
+         s_arst <= '0';
+        
+         wait for 80 ns;
+         s_arst <= '1';
+
+         wait;
      end process p_reset_gen;
 
     --------------------------------------------------------------------
