@@ -712,7 +712,7 @@ end process p_stimulus;
 
 ### Image of the shift register schematic
 
-![]()
+![](images/shiftregister.png)
 
 
 
