@@ -15,14 +15,14 @@ use ieee.std_logic_1164.all;
 ------------------------------------------------------------------------
 -- Entity declaration for testbench
 ------------------------------------------------------------------------
-entity tb_tlc is
+entity tb_stlc is
     -- Entity of testbench is always empty
-end entity tb_tlc;
+end entity tb_stlc;
 
 ------------------------------------------------------------------------
 -- Architecture body for testbench
 ------------------------------------------------------------------------
-architecture testbench of tb_tlc is
+architecture testbench of tb_stlc is
 
     -- Local constants
     constant c_CLK_100MHZ_PERIOD : time := 10 ns;
@@ -30,15 +30,19 @@ architecture testbench of tb_tlc is
     --Local signals
     signal s_clk_100MHz : std_logic;
     signal s_reset      : std_logic;
+    signal s_sen_south  : std_logic;
+    signal s_sen_west   : std_logic;
     signal s_south      : std_logic_vector(3 - 1 downto 0);
     signal s_west       : std_logic_vector(3 - 1 downto 0);
 
 begin
     -- Connecting testbench signals with tlc entity (Unit Under Test)
-    uut_tlc : entity work.tlc
+    uut_tlc : entity work.stlc
         port map(
             clk     => s_clk_100MHz,
             reset   => s_reset,
+            south_i => s_sen_south,
+            west_i  => s_sen_west,
             south_o => s_south,
             west_o  => s_west
         );
@@ -75,7 +79,15 @@ begin
     --------------------------------------------------------------------
     p_stimulus : process
     begin
-        -- No input data needed.
+        wait for 600 ns;
+        s_sen_south <= '0'; s_sen_west <= '0'; wait for 50 ns;
+        s_sen_south <= '0'; s_sen_west <= '1'; wait for 50 ns;
+        s_sen_south <= '0'; s_sen_west <= '0'; wait for 150 ns;
+        s_sen_south <= '1'; s_sen_west <= '0'; wait for 50 ns;
+        s_sen_south <= '0'; s_sen_west <= '0'; wait for 150 ns;
+        s_sen_south <= '0'; s_sen_west <= '1'; wait for 100 ns;
+        s_sen_south <= '1'; s_sen_west <= '0'; wait for 100 ns;
+        s_sen_south <= '1'; s_sen_west <= '1'; wait for 200 ns;
         wait;
     end process p_stimulus;
 
