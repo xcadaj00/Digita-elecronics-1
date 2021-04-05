@@ -165,15 +165,14 @@ end process p_output_fsm;
 
 ## Smart controller
 
-### State table
+### State table with next states
 
-| | | | | **Next state** | | | |
 | **Current state** | **Direction South** | **Direction West** | **Delay** | **No cars** | **Cars West** | **Cars South** | **Cars both directions** |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| `goS`   | green  | red    | at least 3 sec |
-| `waitS` | yellow | red    | 0.5 sec        |
-| `goW`   | red    | green  | at least 3 sec |
-| `waitW` | red    | yellow | 0.5 sec        |
+| `goS`   | green  | red    | at least 3 sec | goS | waitS | goS | waitS |
+| `waitS` | yellow | red    | 0.5 sec        | goW | goW | goW | goW |
+| `goW`   | red    | green  | at least 3 sec | goW | goW | waitW | waitW |
+| `waitW` | red    | yellow | 0.5 sec        | goS | goS | goS | goS |
 
 ### State diagram
 
