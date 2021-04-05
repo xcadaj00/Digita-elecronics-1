@@ -14,7 +14,7 @@
 
 ### Figure with connection of RGB LEDs on Nexys A7 board
 
-![](images/figure.png)
+![](images/figure_rgb.png)
 
 ### Completed table with color settings
 
@@ -162,6 +162,8 @@ end process p_output_fsm;
 ### Screenshot(s) of the simulation, from which it is clear that controller works correctly
 
 ![](images/sim1.png)
+
+
 
 
 
