@@ -176,7 +176,7 @@ end process p_output_fsm;
 
 ### State diagram
 
-![](images/state_diag_smart_traffic.png)
+![](images/state_diagram_smart_traffic.png)
 
 ### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting
 
