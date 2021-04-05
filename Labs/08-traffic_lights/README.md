@@ -167,7 +167,7 @@ end process p_output_fsm;
 
 ### State table
 
-| | | | | **Next state** |
+| | | | | **Next state** | | | |
 | **Current state** | **Direction South** | **Direction West** | **Delay** | **No cars** | **Cars West** | **Cars South** | **Cars both directions** |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | `goS`   | green  | red    | at least 3 sec |
