@@ -159,9 +159,10 @@ begin
 end process p_output_fsm;
 ```
 
-### Screenshot(s) of the simulation, from which it is clear that controller works correctly
+### Screenshots of the simulation, from which it is clear that controller works correctly
 
 ![](images/sim1.png)
+![](images/sim2.png)
 
 ## Smart controller
 
